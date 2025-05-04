@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <title>התחברות</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        input,
+        button {
+            padding: 10px;
+            margin-top: 10px;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        button {
+            background: #0077cc;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #005fa3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>התחברות</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="הכנס שם משתמש" required>
+            <button type="submit">התחבר</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            localStorage.setItem('username', username);
+            window.location.href = 'profile.html';
+        });
+    </script>
+</body>
+
+</html>

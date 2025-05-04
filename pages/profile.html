@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <title>פרטים אישיים</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8f8f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        input,
+        textarea,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        button {
+            background: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>הזן פרטים אישיים</h2>
+        <form id="detailsForm">
+            <input type="text" id="fullName" placeholder="שם מלא" required>
+            <textarea id="bio" placeholder="כמה מילים על עצמך" required></textarea>
+            <input type="text" id="skills" placeholder="כישורים (מופרדים בפסיקים)" required>
+            <button type="submit">צור פורטפוליו</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('detailsForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const fullName = document.getElementById('fullName').value;
+            const bio = document.getElementById('bio').value;
+            const skills = document.getElementById('skills').value;
+
+            localStorage.setItem('fullName', fullName);
+            localStorage.setItem('bio', bio);
+            localStorage.setItem('skills', skills);
+
+            window.location.href = 'portfolio.html';
+        });
+
+    </script>
+</body>
+
+</html>
