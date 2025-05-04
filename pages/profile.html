@@ -50,8 +50,28 @@
         <form id="detailsForm">
             <input type="text" id="fullName" placeholder="שם מלא" required>
             <textarea id="bio" placeholder="כמה מילים על עצמך" required></textarea>
-            <input type="text" id="skills" placeholder="כישורים (מופרדים בפסיקים)" required>
+            <input type="text" id="DegreeInput" placeholder="Degree" required>
+            <input type="text" id="PhoneInput" placeholder="Phone" required>
+            <input type="text" id="AddressInput" placeholder="Address" required>
+            <input type="text" id="BirthdayInput" placeholder="Birthday" required>     
+            <input type="text" id="ExperienceInput" placeholder="Experience" required>
+            <input type="text" id="EmailInput" placeholder="Email" required>
+            <input type="text" id="FreelanceInput" placeholder="Freelance: Available" required>
+
+            <label>
+                <input type="checkbox" id="checkbox1">
+                weather
+              </label><br>
+            
+              <label>
+                <input type="checkbox" id="checkbox2">
+                foreign currency
+
+              </label><br><br>
+
+
             <button type="submit">צור פורטפוליו</button>
+
         </form>
     </div>
 
@@ -69,7 +89,28 @@
             window.location.href = 'portfolio.html';
         });
 
+        const checkbox1 = document.getElementById('checkbox1');
+        const checkbox2 = document.getElementById('checkbox2');
+        const output = document.getElementById('output');
+    
+        function updateOutput() {
+          let message = "בחרת: ";
+          const selections = [];
+          if (checkbox1.checked) selections.push("אפשרות 1");
+          if (checkbox2.checked) selections.push("אפשרות 2");
+    
+          message += selections.length > 0 ? selections.join(", ") : "שום דבר";
+          output.textContent = message;
+        }
+    
+        checkbox1.addEventListener('change', updateOutput);
+        checkbox2.addEventListener('change', updateOutput);
+
     </script>
+   
+   
+ 
+    
 </body>
 
 </html>
