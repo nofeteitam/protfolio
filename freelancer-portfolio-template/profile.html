@@ -3,6 +3,174 @@
 
 <head>
     <meta charset="UTF-8">
+    <title>פרטים אישיים + פורטפוליו</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            direction: rtl;
+        }
+
+        .container,
+        .portfolio {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        input,
+        textarea,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        button {
+            background: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #218838;
+        }
+
+        .info-box {
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>הזן פרטים אישיים</h2>
+        <form id="detailsForm">
+            <input type="text" id="fullName" placeholder="שם מלא" required>
+            <textarea id="bio" placeholder="כמה מילים על עצמך" required></textarea>
+            <input type="text" id="skills" placeholder="Skills (comma separated)" required>
+            <input type="text" id="DegreeInput" placeholder="Degree" required>
+            <input type="text" id="PhoneInput" placeholder="Phone" required>
+            <input type="text" id="AddressInput" placeholder="Address" required>
+            <input type="text" id="BirthdayInput" placeholder="Birthday" required>
+            <input type="text" id="ExperienceInput" placeholder="Experience" required>
+            <input type="text" id="EmailInput" placeholder="Email" required>
+            <input type="text" id="FreelanceInput" placeholder="Freelance: Available" required>
+
+            <label>
+                <input type="checkbox" id="checkbox1"> הצג מזג אוויר
+            </label><br>
+
+            <label>
+                <input type="checkbox" id="checkbox2"> הצג שער דולר
+            </label><br><br>
+
+            <button type="submit">צור פורטפוליו</button>
+        </form>
+    </div>
+
+    <div class="portfolio" id="portfolio" style="display:none;">
+        <h1>שלום, <span id="p_fullName"></span> 👋</h1>
+        <p><strong>עליי:</strong> <span id="p_bio"></span></p>
+        <p><strong>כישורים:</strong> <span id="p_skills"></span></p>
+        <p><strong>תואר:</strong> <span id="p_degree"></span></p>
+        <p><strong>טלפון:</strong> <span id="p_phone"></span></p>
+        <p><strong>כתובת:</strong> <span id="p_address"></span></p>
+        <p><strong>תאריך לידה:</strong> <span id="p_birthday"></span></p>
+        <p><strong>ניסיון:</strong> <span id="p_experience"></span></p>
+        <p><strong>אימייל:</strong> <span id="p_email"></span></p>
+        <p><strong>סטטוס פרילאנס:</strong> <span id="p_freelance"></span></p>
+
+        <div class="info-box" id="weatherBox" style="display: none;"></div>
+        <div class="info-box" id="currencyBox" style="display: none;"></div>
+    </div>
+
+    <script>
+        document.getElementById('detailsForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // קריאת ערכים
+            const fullName = document.getElementById('fullName').value;
+            const bio = document.getElementById('bio').value;
+            const skills = document.getElementById('skills').value;
+            const degree = document.getElementById('DegreeInput').value;
+            const phone = document.getElementById('PhoneInput').value;
+            const address = document.getElementById('AddressInput').value;
+            const birthday = document.getElementById('BirthdayInput').value;
+            const experience = document.getElementById('ExperienceInput').value;
+            const email = document.getElementById('EmailInput').value;
+            const freelance = document.getElementById('FreelanceInput').value;
+
+            // הצגה בדף
+            document.getElementById('p_fullName').textContent = fullName;
+            document.getElementById('p_bio').textContent = bio;
+            document.getElementById('p_skills').textContent = skills;
+            document.getElementById('p_degree').textContent = degree;
+            document.getElementById('p_phone').textContent = phone;
+            document.getElementById('p_address').textContent = address;
+            document.getElementById('p_birthday').textContent = birthday;
+            document.getElementById('p_experience').textContent = experience;
+            document.getElementById('p_email').textContent = email;
+            document.getElementById('p_freelance').textContent = freelance;
+
+            document.getElementById('portfolio').style.display = 'block';
+
+            // מזג אוויר
+            if (document.getElementById('checkbox1').checked) {
+                fetch(`https://api.open-meteo.com/v1/forecast?latitude=32.0853&longitude=34.7818&current=temperature_2m,wind_speed_10m`)
+                    .then(res => res.json())
+                    .then(data => {
+                        document.getElementById('weatherBox').style.display = 'block';
+                        document.getElementById('weatherBox').innerHTML = `
+                        <h3>מזג האוויר בתל אביב</h3>
+                        <p>🌡️ טמפרטורה: ${data.current.temperature_2m}°C</p>
+                        <p>💨 רוח: ${data.current.wind_speed_10m} קמ"ש</p>
+                    `;
+                    });
+            }
+
+            // שער מטבע
+            if (document.getElementById('checkbox2').checked) {
+                const apiKey = 'fca_live_HPkMf2Y6dre2RSsryEk8B6mYShc5OQpybaABj6sn';
+                fetch(`https://api.freecurrencyapi.com/v1/latest?apikey=${apiKey}&base_currency=USD&currencies=ILS`)
+                    .then(res => res.json())
+                    .then(data => {
+                        const rate = data.data.ILS;
+                        document.getElementById('currencyBox').style.display = 'block';
+                        document.getElementById('currencyBox').innerHTML = `
+                        <h3>💱 שער דולר לשקל</h3>
+                        <p>1 USD = ${rate.toFixed(2)} ILS</p>
+                    `;
+                    });
+            }
+        });
+    </script>
+
+</body>
+
+</html>
+
+<!--
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
     <title>פרטים אישיים</title>
     <style>
         body {
@@ -114,3 +282,4 @@
 </body>
 
 </html>
+--->
