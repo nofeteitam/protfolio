@@ -80,6 +80,7 @@
             e.preventDefault();
             const fullName = document.getElementById('fullName').value;
             const bio = document.getElementById('bio').value;
+<<<<<<< HEAD
             const degree = document.getElementById('DegreeInput').value;
             const phone = document.getElementById('PhoneInput').value;
             const address = document.getElementById('AddressInput').value;
@@ -99,6 +100,15 @@
             localStorage.setItem('freelance', freelance);
 
             window.location.href = 'index.html';
+=======
+            const skills = document.getElementById('skills').value;
+
+            localStorage.setItem('fullName', fullName);
+            localStorage.setItem('bio', bio);
+            localStorage.setItem('skills', skills);
+
+            window.location.href = 'portfolio.html';
+>>>>>>> ee5f6fa66220934b85919ca45b40402eb9c329e5
         });
 
         const checkbox1 = document.getElementById('checkbox1');
@@ -112,7 +122,11 @@
           if (checkbox2.checked) selections.push("אפשרות 2");
     
           message += selections.length > 0 ? selections.join(", ") : "שום דבר";
+<<<<<<< HEAD
          // output.textContent = message;
+=======
+          output.textContent = message;
+>>>>>>> ee5f6fa66220934b85919ca45b40402eb9c329e5
         }
     
         checkbox1.addEventListener('change', updateOutput);

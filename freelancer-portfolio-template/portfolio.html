@@ -72,8 +72,13 @@
         document.getElementById('bio').textContent = localStorage.getItem('bio');
 
         const skillsRaw = localStorage.getItem('skills');
+<<<<<<< HEAD
         //const skillsList = skillsRaw.split(',').map(skill => `<span>🔹 ${skill.trim()}</span>`).join('<br>');
         //document.getElementById('skills').innerHTML = skillsList;
+=======
+        const skillsList = skillsRaw.split(',').map(skill => `<span>🔹 ${skill.trim()}</span>`).join('<br>');
+        document.getElementById('skills').innerHTML = skillsList;
+>>>>>>> ee5f6fa66220934b85919ca45b40402eb9c329e5
 
         // --- מזג אוויר בתל אביב ---
         const lat = 32.0853;
