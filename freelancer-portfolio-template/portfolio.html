@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <title>הפורטפוליו שלי</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #e8f0fe;
+            padding: 40px;
+            direction: rtl;
+        }
+
+        .card {
+            background: white;
+            max-width: 600px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1,
+        h2 {
+            color: #333;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        .skills {
+            background: #f1f1f1;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .info-box {
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .info-box h3 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h1>שלום, <span id="username"></span> 👋</h1>
+        <h2>שם מלא: <span id="fullName"></span></h2>
+        <p><strong>עליי:</strong> <span id="bio"></span></p>
+        <p><strong>כישורים:</strong></p>
+        <div class="skills" id="skills"></div>
+
+        <section id="extra-info">
+            <div class="info-box" id="weather"></div>
+            <div class="info-box" id="exchange"></div>
+        </section>
+    </div>
+
+    <script>
+        // --- הכנסת פרטי המשתמש ---
+        document.getElementById('username').textContent = localStorage.getItem('username');
+        document.getElementById('fullName').textContent = localStorage.getItem('fullName');
+        document.getElementById('bio').textContent = localStorage.getItem('bio');
+
+        const skillsRaw = localStorage.getItem('skills');
+        //const skillsList = skillsRaw.split(',').map(skill => `<span>🔹 ${skill.trim()}</span>`).join('<br>');
+        //document.getElementById('skills').innerHTML = skillsList;
+
+        // --- מזג אוויר בתל אביב ---
+        const lat = 32.0853;
+        const lon = 34.7818;
+        const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,wind_speed_10m`;
+
+        fetch(weatherUrl)
+            .then(res => res.json())
+            .then(data => {
+                const temp = data.current.temperature_2m;
+                const wind = data.current.wind_speed_10m;
+                document.getElementById('weather').innerHTML = `
+          <h3>מזג האוויר בתל אביב</h3>
+          <p>🌡️ טמפרטורה: ${temp}°C</p>
+          <p>💨 רוח: ${wind} קמ"ש</p>
+        `;
+            })
+            .catch(err => console.error('שגיאה במזג האוויר:', err));
+
+        // --- שער חליפין USD ל-ILS ---
+        const apiKey = 'fca_live_HPkMf2Y6dre2RSsryEk8B6mYShc5OQpybaABj6sn'; // שימי כאן את מפתח ה-API שלך
+        const currencyUrl = `https://api.freecurrencyapi.com/v1/latest?apikey=${apiKey}&base_currency=USD&currencies=ILS`;
+
+        fetch(currencyUrl)
+            .then(res => res.json())
+            .then(data => {
+                const rate = data.data.ILS;
+                document.getElementById('exchange').innerHTML = `
+          <h3>💱 שער דולר לשקל</h3>
+          <p>1 USD = ${rate.toFixed(2)} ILS</p>
+        `;
+            })
+            .catch(err => console.error('שגיאה בשערי המטבע:', err));
+    </script>
+</body>
+
+</html>

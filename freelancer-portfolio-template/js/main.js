@@ -1,3 +1,56 @@
+
+document.getElementById('fullName').textContent = localStorage.getItem('fullName');
+document.getElementById('degreeInput').textContent = localStorage.getItem('degree');
+document.getElementById('PhoneInput').textContent = localStorage.getItem('phone');
+document.getElementById('AddressInput').textContent = localStorage.getItem('address');
+document.getElementById('birthdayInput').textContent = localStorage.getItem('birthDay');
+document.getElementById('ExperienceInput').textContent = localStorage.getItem('experience');
+document.getElementById('EmailInput').textContent = localStorage.getItem('email');
+document.getElementById('FreelanceInput').textContent = localStorage.getItem('freelance');
+
+/*
+const bio = document.getElementById('bio').value;
+const degree = document.getElementById('DegreeInput').value;
+const phone = document.getElementById('PhoneInput').value;
+const address = document.getElementById('AddressInput').value;
+const birthDay = document.getElementById('BirthdayInput').value;
+const experience = document.getElementById('ExperienceInput').value;
+const email = document.getElementById('EmailInput').value;
+const freelance = document.getElementById('FreelanceInput').value;
+*/
+
+const lat = 32.0853;
+const lon = 34.7818;
+const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,wind_speed_10m`;
+
+fetch(weatherUrl)
+    .then(res => res.json())
+    .then(data => {
+        const temp = data.current.temperature_2m;
+        const wind = data.current.wind_speed_10m;
+        document.getElementById('weather').innerHTML = `
+  <h3>מזג האוויר בתל אביב</h3>
+  <p>🌡️ טמפרטורה: ${temp}°C</p>
+  <p>💨 רוח: ${wind} קמ"ש</p>
+`;
+    })
+    .catch(err => console.error('שגיאה במזג האוויר:', err));
+
+// --- שער חליפין USD ל-ILS ---
+const apiKey = 'fca_live_HPkMf2Y6dre2RSsryEk8B6mYShc5OQpybaABj6sn'; // שימי כאן את מפתח ה-API שלך
+const currencyUrl = `https://api.freecurrencyapi.com/v1/latest?apikey=${apiKey}&base_currency=USD&currencies=ILS`;
+
+fetch(currencyUrl)
+    .then(res => res.json())
+    .then(data => {
+        const rate = data.data.ILS;
+        document.getElementById('exchange').innerHTML = `
+  <h3>💱 שער דולר לשקל</h3>
+  <p>1 USD = ${rate.toFixed(2)} ILS</p>
+`;
+    })
+    .catch(err => console.error('שגיאה בשערי המטבע:', err));
+
 (function ($) {
     "use strict";
 
