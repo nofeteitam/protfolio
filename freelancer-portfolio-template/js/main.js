@@ -1,28 +1,39 @@
+let newPerArr=JSON.parse(localStorage.getItem("currentPerson"));
 
-document.getElementById('fullName').textContent = localStorage.getItem('fullName');
-document.getElementById('degreeInput').textContent = localStorage.getItem('degree');
-document.getElementById('PhoneInput').textContent = localStorage.getItem('phone');
-document.getElementById('AddressInput').textContent = localStorage.getItem('address');
-document.getElementById('birthdayInput').textContent = localStorage.getItem('birthDay');
-document.getElementById('ExperienceInput').textContent = localStorage.getItem('experience');
-document.getElementById('EmailInput').textContent = localStorage.getItem('email');
+console.log(newPerArr);
+console.log(newPerArr[0].fullName);
+
+
+document.getElementById('fullName').textContent = newPerArr[0].fullName
+document.getElementById('degreeInput').textContent = newPerArr[0].degree
+document.getElementById('PhoneInput').textContent = newPerArr[0].phone;
+document.getElementById('AddressInput').textContent = newPerArr[0].address;
+document.getElementById('birthdayInput').textContent = newPerArr[0].birthDay;
+document.getElementById('ExperienceInput').textContent = newPerArr[0].experience;
+document.getElementById('EmailInput').textContent = newPerArr[0].email;
+document.getElementById('FreelanceInput').textContent = newPerArr[0].freelance;
+
+/*
+
+
+
 document.getElementById('FreelanceInput').textContent = localStorage.getItem('freelance');
 
-
-const bio = document.getElementById('bio').value;
-const degree = document.getElementById('DegreeInput').value;
+const degree = document.getElementById('degreeInput').value;
 const phone = document.getElementById('PhoneInput').value;
 const address = document.getElementById('AddressInput').value;
 const birthDay = document.getElementById('BirthdayInput').value;
 const experience = document.getElementById('ExperienceInput').value;
 const email = document.getElementById('EmailInput').value;
 const freelance = document.getElementById('FreelanceInput').value;
-
+*/
 
 const lat = 32.0853;
 const lon = 34.7818;
+
 const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,wind_speed_10m`;
 
+if (newPerArr[0].apiWeather==1){
 fetch(weatherUrl)
     .then(res => res.json())
     .then(data => {
@@ -36,20 +47,23 @@ fetch(weatherUrl)
     })
     .catch(err => console.error('שגיאה במזג האוויר:', err));
 
+}
+
 // --- שער חליפין USD ל-ILS ---
 const apiKey = 'fca_live_HPkMf2Y6dre2RSsryEk8B6mYShc5OQpybaABj6sn'; // שימי כאן את מפתח ה-API שלך
 const currencyUrl = `https://api.freecurrencyapi.com/v1/latest?apikey=${apiKey}&base_currency=USD&currencies=ILS`;
 
+if (newPerArr[0].apiFcurrency==1){
 fetch(currencyUrl)
     .then(res => res.json())
     .then(data => {
         const rate = data.data.ILS;
         document.getElementById('exchange').innerHTML = `
-  <h3>💱 שער דולר לשקל</h3>
-  <p>1 USD = ${rate.toFixed(2)} ILS</p>
-`;
-    })
-    .catch(err => console.error('שגיאה בשערי המטבע:', err));
+                    <h3>💱 שער דולר לשקל</h3>
+                    <p>1 USD = ${rate.toFixed(2)} ILS</p> `;
+    }).catch(err => console.error('שגיאה בשערי המטבע:', err));
+
+} 
 
 (function ($) {
     "use strict";
@@ -62,6 +76,8 @@ fetch(currencyUrl)
             $('.navbar').fadeOut('slow').css('display', 'none');
         }
     });
+
+//  =============================
 
 
     // Smooth scrolling on the navbar links
@@ -79,6 +95,8 @@ fetch(currencyUrl)
             }
         }
     });
+
+    
 
 
     // Typed Initiate
