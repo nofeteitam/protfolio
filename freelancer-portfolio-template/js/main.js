@@ -8,7 +8,7 @@ document.getElementById('ExperienceInput').textContent = localStorage.getItem('e
 document.getElementById('EmailInput').textContent = localStorage.getItem('email');
 document.getElementById('FreelanceInput').textContent = localStorage.getItem('freelance');
 
-/*
+
 const bio = document.getElementById('bio').value;
 const degree = document.getElementById('DegreeInput').value;
 const phone = document.getElementById('PhoneInput').value;
@@ -17,7 +17,7 @@ const birthDay = document.getElementById('BirthdayInput').value;
 const experience = document.getElementById('ExperienceInput').value;
 const email = document.getElementById('EmailInput').value;
 const freelance = document.getElementById('FreelanceInput').value;
-*/
+
 
 const lat = 32.0853;
 const lon = 34.7818;
