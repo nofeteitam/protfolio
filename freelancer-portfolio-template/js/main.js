@@ -1,9 +1,6 @@
 let newPerArr=JSON.parse(localStorage.getItem("currentPerson"));
 
-console.log(newPerArr);
-console.log(newPerArr[0].fullName);
-
-
+/*         ABOUT ME                   */
 document.getElementById('fullName').textContent = newPerArr[0].fullName
 document.getElementById('degreeInput').textContent = newPerArr[0].degree
 document.getElementById('PhoneInput').textContent = newPerArr[0].phone;
@@ -12,6 +9,32 @@ document.getElementById('birthdayInput').textContent = newPerArr[0].birthDay;
 document.getElementById('ExperienceInput').textContent = newPerArr[0].experience;
 document.getElementById('EmailInput').textContent = newPerArr[0].email;
 document.getElementById('FreelanceInput').textContent = newPerArr[0].freelance;
+
+/*         My SKILLS on BAR                  */
+document.getElementById('htmlDivProgressBar').textContent = newPerArr[0].htmlOptVal+"%";
+document.getElementById('cssDivProgressBar').textContent = newPerArr[0].cssOptVal+"%";
+document.getElementById('phpDivProgressBar').textContent = newPerArr[0].phpOptVal+"%";
+document.getElementById('javascriptDivProgressBar').textContent = newPerArr[0].javascriptOptVal+"%";
+document.getElementById('angularDivProgressBar').textContent = newPerArr[0].angularJsOptVal+"%";
+document.getElementById('wordpressDivProgressBar').textContent = newPerArr[0].wordpressOptVal+"%";
+
+/*         My SKILLs progrees Value                   */
+document.getElementById('htmlDivProgressBar').ariaValueNow =newPerArr[0].htmlOptVal;
+document.getElementById('cssDivProgressBar').ariaValueNow = newPerArr[0].cssOptVal;
+document.getElementById('phpDivProgressBar').ariaValueNow = newPerArr[0].phpOptVal;
+document.getElementById('javascriptDivProgressBar').ariaValueNow = newPerArr[0].javascriptOptVal;
+document.getElementById('angularDivProgressBar').ariaValueNow = newPerArr[0].angularJsOptVal;
+document.getElementById('wordpressDivProgressBar').ariaValueNow = newPerArr[0].wordpressOptVal;
+
+/*             My SKILLs BAR  Header  Value            */
+document.getElementById('htmlHeaderProgressBar').textContent =newPerArr[0].htmlOptVal+"%";
+document.getElementById('cssHeaderProgressBar').textContent = newPerArr[0].cssOptVal+"%";
+document.getElementById('phpHeaderProgressBar').textContent = newPerArr[0].phpOptVal+"%";
+document.getElementById('javascriptHeaderProgressBar').textContent = newPerArr[0].javascriptOptVal+"%";
+document.getElementById('angularJsHeaderProgressBar').textContent = newPerArr[0].angularJsOptVal+"%";
+document.getElementById('wordpressHeaderProgressBar').textContent = newPerArr[0].wordpressOptVal+"%";
+
+
 
 /*
 
@@ -64,6 +87,9 @@ fetch(currencyUrl)
     }).catch(err => console.error('שגיאה בשערי המטבע:', err));
 
 } 
+
+
+
 
 (function ($) {
     "use strict";
