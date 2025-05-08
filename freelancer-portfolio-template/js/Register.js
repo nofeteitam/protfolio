@@ -38,7 +38,7 @@ async function deleteFields() {
 async function loginBtnFunc() {
     document.getElementById("cubeLogin").style.display = "block";
     await sleepMode(1);
-    window.location.href = "../newLogin.html"
+    window.location.href = "login.html"
 }
 
 $("#submitRegBtn").click(async (event) => {
@@ -94,7 +94,7 @@ $("#submitRegBtn").click(async (event) => {
             }
             alert("You have successfully registered");
             deleteFields()
-            window.location.href = "portfolio.html";
+            window.location.href = "profile.html";
             return;
         }
 

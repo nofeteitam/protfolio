@@ -1,0 +1,27 @@
+ body,
+ html {
+     height: 100%;
+ }
+
+ .center-wrapper {
+     min-height: 100vh;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     background: #f8f9fa;
+     padding: 2rem;
+ }
+
+ .card {
+     max-width: 400px;
+     width: 100%;
+     border-radius: 1rem;
+     border: 1px solid #dee2e6;
+     background-color: white;
+ }
+
+ .below-card {
+     text-align: center;
+     margin-top: 20px;
+ }
