@@ -35,6 +35,35 @@ document.getElementById('angularJsHeaderProgressBar').textContent = newPerArr[0]
 document.getElementById('wordpressHeaderProgressBar').textContent = newPerArr[0].wordpressOptVal+"%";
 
 
+document.getElementById('myEducationP').textContent =newPerArr[0].myEducationText;
+document.getElementById('myExpericenceP').textContent = newPerArr[0].myExpericenceText;
+
+certificateDivFunc();
+
+function certificateDivFunc(){
+
+    let certificatesArr=[];
+    let myStr=""
+    if (newPerArr[0].appsDesignerOpt){
+        myStr+="Apps Designer"+`, `;
+    }
+    if (newPerArr[0].appsDeveloperOpt){
+        myStr+="Apps Developer"+`, `;
+    }
+    if (newPerArr[0].frontndDeveloperOpt){
+        myStr+="Front End Developer"+`, `;
+    }
+    if (newPerArr[0].webDesignerOpt){
+        myStr+="Web Designer"+`, `;
+    }
+    if (newPerArr[0].webDeveloperOpt){
+        myStr+="Web Developer"+`, `;
+    }
+    document.getElementById('certificateDiv').textContent =myStr;
+}
+
+
+
 
 /*
 
@@ -72,6 +101,12 @@ fetch(weatherUrl)
 
 }
 
+else{
+    console.log( document.getElementById(`weatherAPIDiv`));
+    document.getElementById(`weatherAPIDiv`).innerText="";
+    document.getElementById(`weatherAPIHeader`).innerText="";
+ }
+
 // --- שער חליפין USD ל-ILS ---
 const apiKey = 'fca_live_HPkMf2Y6dre2RSsryEk8B6mYShc5OQpybaABj6sn'; // שימי כאן את מפתח ה-API שלך
 const currencyUrl = `https://api.freecurrencyapi.com/v1/latest?apikey=${apiKey}&base_currency=USD&currencies=ILS`;
@@ -87,6 +122,13 @@ fetch(currencyUrl)
     }).catch(err => console.error('שגיאה בשערי המטבע:', err));
 
 } 
+
+else{
+    console.log( document.getElementById(`weatherAPIDiv`));
+    document.getElementById(`exchangeAPIDiv`).innerText="";
+    document.getElementById(`exchangeAPIHeader`).innerText="";
+ }
+
 
 
 

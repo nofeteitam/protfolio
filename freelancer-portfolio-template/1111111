@@ -1,3 +1,89 @@
+function createFunc(){
+
+    // API בחירת 
+
+    const apiW = document.getElementById('option1').checked;
+    const apiFC = document.getElementById('option2').checked;
+
+    console.log(apiW)
+    console.log(apiFC)
+
+    const htmlOptVal = document.getElementById('htmlOpt').value;
+    const cssOptVal = document.getElementById('cssOpt').value;
+    const phpOptVal = document.getElementById('phpOpt').value;
+    const javascriptOptVal = document.getElementById('javascriptOpt').value;
+    const angularJsOptVal = document.getElementById('angularJsOpt').value;
+    const wordpressOptVal = document.getElementById('wordpressOpt').value;
+
+    const webDesignerOpt = document.getElementById('webDesignerOption').value;
+    const webDeveloperOpt = document.getElementById('webDeveloperOption').value;
+    const frontndDeveloperOpt = document.getElementById('frontndDeveloperOption').value;
+    const appsDesignerOpt = document.getElementById('appsDesignerOption').value;
+    const appsDeveloperOpt = document.getElementById('appsDeveloperOption').value;
+
+
+
+class Person{
+    constructor(personID,fullName, degree, phone,address ,
+                   birthDay,experience ,email,freelance
+                   ,apiWeather,apiFcurrency) {
+        this.personID=personID;
+        this.fullName = fullName;
+        this.degree = degree;
+        this.phone = phone;
+        this.address = address;
+        this.birthDay = birthDay;
+        this.experience = experience;
+        this.email = email;
+        this.freelance = freelance;
+        this.apiWeather = apiW;
+        this.apiFcurrency = apiFC;  }
+    }
+
+    const fullName = document.getElementById('fullName').value;
+    //const bio = document.getElementById('bio').value;
+    const degree = document.getElementById('DegreeInput').value;
+    const phone = document.getElementById('PhoneInput').value;
+    const address = document.getElementById('AddressInput').value;
+    const birthDay = document.getElementById('BirthdayInput').value;
+    const experience = document.getElementById('ExperienceInput').value;
+    const email = document.getElementById('EmailInput').value;
+    const freelance = document.getElementById('FreelanceInput').value;
+
+
+    let personArr=[];
+    let newPerson = new Person(1,fullName, degree,phone,address,
+                    birthDay,experience,email,freelance,apiW,apiFC)
+        newPerson.personID = 1;
+        //newUser.profilePicture = profilePicture;
+
+    newPerson.htmlOptVal = htmlOptVal;
+    newPerson.cssOptVal = cssOptVal;
+    newPerson.phpOptVal = phpOptVal;
+    newPerson.javascriptOptVal = javascriptOptVal;
+    newPerson.angularJsOptVal = angularJsOptVal;
+    newPerson.wordpressOptVal = wordpressOptVal;
+
+    newPerson.webDesignerOpt = webDesignerOpt;
+    newPerson.webDeveloperOpt = webDeveloperOpt;
+    newPerson.frontndDeveloperOpt = frontndDeveloperOpt;
+    newPerson.appsDesignerOpt = appsDesignerOpt;
+    newPerson.appsDeveloperOpt = appsDeveloperOpt;
+
+
+        personArr= [(newPerson)];
+        console.log(personArr);
+         
+        localStorage.setItem("currentPerson", JSON.stringify(personArr));
+        alert("You have successfully registered  ")
+
+    window.location.href = 'index.html';
+
+
+
+}
+
+
 
 <!DOCTYPE html>
 <html lang="he">

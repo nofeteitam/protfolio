@@ -4144,7 +4144,7 @@ input[type="button"].btn-block {
 
 .navbar-nav .dropdown-menu {
   position: static;
-  float: none;
+  /*float: none;*/
 }
 
 .navbar-text {
