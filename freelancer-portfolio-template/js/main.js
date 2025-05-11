@@ -1,49 +1,61 @@
-let newPerArr = JSON.parse(localStorage.getItem("currentPerson"));
+
+let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+let AllPerArr = JSON.parse(localStorage.getItem("currentPerson"));
+
+for(let i in AllPerArr)
+{
+    if (AllPerArr[i].personID==currentUser.userId )
+    {
+        newPerArr=AllPerArr[i];
+        break;
+
+    }
+}
 
 /*         ABOUT ME                   */
-document.getElementById('protName').textContent = newPerArr[0].fullName
-document.getElementById('fullName').textContent = newPerArr[0].fullName
-document.getElementById('profPic').src = newPerArr[0].profilePicture;
-document.getElementById('anotherPic').src = newPerArr[0].anotherPicture;
-document.getElementById('Name').textContent = newPerArr[0].fullName;
-document.getElementById('degreeInput').textContent = newPerArr[0].degree
-document.getElementById('PhoneInput').textContent = newPerArr[0].phone;
-document.getElementById('AddressInput').textContent = newPerArr[0].address;
-document.getElementById('birthdayInput').textContent = newPerArr[0].birthDay;
-document.getElementById('ExperienceInput').textContent = newPerArr[0].experience;
-document.getElementById('EmailInput').textContent = newPerArr[0].email;
-document.getElementById('FreelanceInput').textContent = newPerArr[0].freelance;
+document.getElementById('protName').textContent = newPerArr.fullName
+document.getElementById('fullName').textContent = newPerArr.fullName
+document.getElementById('profPic').src = newPerArr.profilePicture;
+document.getElementById('anotherPic').src = newPerArr.anotherPicture;
+document.getElementById('Name').textContent = newPerArr.fullName;
+document.getElementById('degreeInput').textContent = newPerArr.degree
+document.getElementById('PhoneInput').textContent = newPerArr.phone;
+document.getElementById('AddressInput').textContent = newPerArr.address;
+document.getElementById('birthdayInput').textContent = newPerArr.birthDay;
+document.getElementById('ExperienceInput').textContent = newPerArr.experience;
+document.getElementById('EmailInput').textContent = newPerArr.email;
+document.getElementById('FreelanceInput').textContent = newPerArr.freelance;
 
 /*         My SKILLS on BAR                  */
-document.getElementById('htmlDivProgressBar').textContent = newPerArr[0].htmlOptVal + "%";
-document.getElementById('cssDivProgressBar').textContent = newPerArr[0].cssOptVal + "%";
-document.getElementById('phpDivProgressBar').textContent = newPerArr[0].phpOptVal + "%";
-document.getElementById('javascriptDivProgressBar').textContent = newPerArr[0].javascriptOptVal + "%";
-document.getElementById('angularDivProgressBar').textContent = newPerArr[0].angularJsOptVal + "%";
-document.getElementById('wordpressDivProgressBar').textContent = newPerArr[0].wordpressOptVal + "%";
+document.getElementById('htmlDivProgressBar').textContent = newPerArr.htmlOptVal + "%";
+document.getElementById('cssDivProgressBar').textContent = newPerArr.cssOptVal + "%";
+document.getElementById('phpDivProgressBar').textContent = newPerArr.phpOptVal + "%";
+document.getElementById('javascriptDivProgressBar').textContent = newPerArr.javascriptOptVal + "%";
+document.getElementById('angularDivProgressBar').textContent = newPerArr.angularJsOptVal + "%";
+document.getElementById('wordpressDivProgressBar').textContent = newPerArr.wordpressOptVal + "%";
 
 /*         My SKILLs progrees Value                   */
-document.getElementById('htmlDivProgressBar').ariaValueNow = newPerArr[0].htmlOptVal;
-document.getElementById('cssDivProgressBar').ariaValueNow = newPerArr[0].cssOptVal;
-document.getElementById('phpDivProgressBar').ariaValueNow = newPerArr[0].phpOptVal;
-document.getElementById('javascriptDivProgressBar').ariaValueNow = newPerArr[0].javascriptOptVal;
-document.getElementById('angularDivProgressBar').ariaValueNow = newPerArr[0].angularJsOptVal;
-document.getElementById('wordpressDivProgressBar').ariaValueNow = newPerArr[0].wordpressOptVal;
+document.getElementById('htmlDivProgressBar').ariaValueNow = newPerArr.htmlOptVal;
+document.getElementById('cssDivProgressBar').ariaValueNow = newPerArr.cssOptVal;
+document.getElementById('phpDivProgressBar').ariaValueNow = newPerArr.phpOptVal;
+document.getElementById('javascriptDivProgressBar').ariaValueNow = newPerArr.javascriptOptVal;
+document.getElementById('angularDivProgressBar').ariaValueNow = newPerArr.angularJsOptVal;
+document.getElementById('wordpressDivProgressBar').ariaValueNow = newPerArr.wordpressOptVal;
 
 /*             My SKILLs BAR  Header  Value            */
-document.getElementById('htmlHeaderProgressBar').textContent = newPerArr[0].htmlOptVal + "%";
-document.getElementById('cssHeaderProgressBar').textContent = newPerArr[0].cssOptVal + "%";
-document.getElementById('phpHeaderProgressBar').textContent = newPerArr[0].phpOptVal + "%";
-document.getElementById('javascriptHeaderProgressBar').textContent = newPerArr[0].javascriptOptVal + "%";
-document.getElementById('angularJsHeaderProgressBar').textContent = newPerArr[0].angularJsOptVal + "%";
-document.getElementById('wordpressHeaderProgressBar').textContent = newPerArr[0].wordpressOptVal + "%";
+document.getElementById('htmlHeaderProgressBar').textContent = newPerArr.htmlOptVal + "%";
+document.getElementById('cssHeaderProgressBar').textContent = newPerArr.cssOptVal + "%";
+document.getElementById('phpHeaderProgressBar').textContent = newPerArr.phpOptVal + "%";
+document.getElementById('javascriptHeaderProgressBar').textContent = newPerArr.javascriptOptVal + "%";
+document.getElementById('angularJsHeaderProgressBar').textContent = newPerArr.angularJsOptVal + "%";
+document.getElementById('wordpressHeaderProgressBar').textContent = newPerArr.wordpressOptVal + "%";
 
 
-document.getElementById('myEducationP').textContent = newPerArr[0].myEducationText;
-document.getElementById('myExpericenceP').textContent = newPerArr[0].myExpericenceText;
+document.getElementById('myEducationP').textContent = newPerArr.myEducationText;
+document.getElementById('myExpericenceP').textContent = newPerArr.myExpericenceText;
 
-document.getElementById('maiLink').textContent = newPerArr[0].email;
-document.getElementById('teLink').textContent = newPerArr[0].phone;
+document.getElementById('maiLink').textContent = newPerArr.email;
+document.getElementById('teLink').textContent = newPerArr.phone;
 
 certificateDivFunc();
 
@@ -51,19 +63,19 @@ function certificateDivFunc() {
 
     let certificatesArr = [];
     let myStr = ""
-    if (newPerArr[0].appsDesignerOpt) {
+    if (newPerArr.appsDesignerOpt) {
         myStr += "Apps Designer" + `, `;
     }
-    if (newPerArr[0].appsDeveloperOpt) {
+    if (newPerArr.appsDeveloperOpt) {
         myStr += "Apps Developer" + `, `;
     }
-    if (newPerArr[0].frontndDeveloperOpt) {
+    if (newPerArr.frontndDeveloperOpt) {
         myStr += "Front End Developer" + `, `;
     }
-    if (newPerArr[0].webDesignerOpt) {
+    if (newPerArr.webDesignerOpt) {
         myStr += "Web Designer" + `, `;
     }
-    if (newPerArr[0].webDeveloperOpt) {
+    if (newPerArr.webDeveloperOpt) {
         myStr += "Web Developer" + `, `;
     }
     document.getElementById('certificateDiv').textContent = myStr;
@@ -92,7 +104,7 @@ const lon = 34.7818;
 
 const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,wind_speed_10m`;
 
-if (newPerArr[0].apiWeather == 1) {
+if (newPerArr.apiWeather == 1) {
     fetch(weatherUrl)
         .then(res => res.json())
         .then(data => {
@@ -118,7 +130,7 @@ else {
 const apiKey = 'fca_live_HPkMf2Y6dre2RSsryEk8B6mYShc5OQpybaABj6sn'; // שימי כאן את מפתח ה-API שלך
 const currencyUrl = `https://api.freecurrencyapi.com/v1/latest?apikey=${apiKey}&base_currency=USD&currencies=ILS`;
 
-if (newPerArr[0].apiFcurrency == 1) {
+if (newPerArr.apiFcurrency == 1) {
     fetch(currencyUrl)
         .then(res => res.json())
         .then(data => {
