@@ -1,264 +1,280 @@
-
 <!DOCTYPE html>
 <html lang="he">
 
 <head>
     <meta charset="UTF-8">
     <title>Enter Your Personal Details </title>
-<style>
-body {
-    font-family: Arial, sans-serif;
-    background: #f8f8f8;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: fit-content;
-}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8f8f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: fit-content;
+        }
 
-.container{
-    padding: 50%;
-    background: rgb(190, 230, 242);
-    padding: 30px;
-    border-radius: 50px;
-    width: 500px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    align-items: center;
-}
+        .container {
+            padding: 50%;
+            background: rgb(190, 230, 242);
+            padding: 30px;
+            border-radius: 50px;
+            width: 500px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            align-items: center;
+        }
 
-#certificatesContainer {
-    margin-top: 20px;
-    padding: 50%;
-    background: rgb(190, 230, 242);
-    padding: 15px;
-    border-radius: 30px;
-    width: 450px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    align-items: center;
-}
+        #certificatesContainer {
+            margin-top: 20px;
+            padding: 50%;
+            background: rgb(190, 230, 242);
+            padding: 15px;
+            border-radius: 30px;
+            width: 450px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            align-items: center;
+        }
 
-#myEducationText,
-#myExpericenceText{
-        
-        border-color: aqua;
-        border-radius: 10px;
-        width: 95%;
-        height: 30px;
-        padding: 10px;
-        margin-top: 10px;
-        font-size: 20px;
+        #myEducationText,
+        #myExpericenceText {
 
-}
+            border-color: aqua;
+            border-radius: 10px;
+            width: 95%;
+            height: 30px;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 20px;
 
-#myEducationText:hover{
-    background-color: rgb(115, 236, 247);
-}
+        }
 
-#myExpericenceText:hover{
-    background-color: rgb(115, 236, 247);
-}
+        #myEducationText:hover {
+            background-color: rgb(115, 236, 247);
+        }
 
-input:hover{
-    background-color: rgb(115, 236, 247);
-    border-color: aqua;
-}
+        #myExpericenceText:hover {
+            background-color: rgb(115, 236, 247);
+        }
 
-input,
-checkbox,
-label {
-    width: 60%;
-    padding: 10px;
-    margin-top: 10px;
-    font-size: 14px;
-    border-radius: 10px;
-    border-color: #f8f8f8;
-     }
+        input:hover {
+            background-color: rgb(115, 236, 247);
+            border-color: aqua;
+        }
 
-#imgRadioInput,#urlOptInput{
-    width: 50px;
-}
-#imgLable{
-    margin-bottom: 20px;
-    width: 200px;
-}
+        input,
+        checkbox,
+        label {
+            width: 60%;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 14px;
+            border-radius: 10px;
+            border-color: #f8f8f8;
+        }
 
+        #imgRadioInput,
+        #urlOptInput {
+            width: 50px;
+        }
 
-
-
-h3{
-    padding-top: 5%;
-    width: 50%; 
-}
+        #imgLable {
+            margin-bottom: 20px;
+            width: 200px;
+        }
 
 
-#option1,
-#option2,#frontndDeveloperOption,
-#webDesignerOption,#webDeveloperOption,
-#appsDesignerOption,#appsDeveloperOption {
-    width: 10%;
-    padding: 10px;
-    font-size: 14px;
-    margin-right: 1%;
 
-  
-}
 
-button {
-    border-radius: 35px;
-    margin-top: 10%;
-    height: 50px;
-    width: 60%;
-    align-items: center;
-    background: #28a745;
-    color: white;
-    border: none;
-    cursor: pointer;
-    margin-left:20%;
-}
+        h3 {
+            padding-top: 5%;
+            width: 50%;
+        }
 
-button:hover {
-    background: #49ec6c;
-}
 
-</style>
+        #option1,
+        #option2,
+        #frontndDeveloperOption,
+        #webDesignerOption,
+        #webDeveloperOption,
+        #appsDesignerOption,
+        #appsDeveloperOption {
+            width: 10%;
+            padding: 10px;
+            font-size: 14px;
+            margin-right: 1%;
+
+
+        }
+
+        button {
+            border-radius: 35px;
+            margin-top: 10%;
+            height: 50px;
+            width: 60%;
+            align-items: center;
+            background: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-left: 20%;
+        }
+
+        button:hover {
+            background: #49ec6c;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
-        <h2>Enter Your Personal Details  </h2>
+        <h2>Enter Your Personal Details </h2>
 
-           <div id="certificatesContainer">
-        
+        <div id="certificatesContainer">
+
             <input type="text" id="fullName" placeholder="שם מלא" required>
             <!--textarea id="bio" placeholder="כמה מילים על עצמך" required></textarea-->
             <input type="text" id="DegreeInput" placeholder="Degree" required>
             <input type="text" id="PhoneInput" placeholder="Phone" required>
             <input type="text" id="AddressInput" placeholder="Address" required>
-            <input type="text" id="BirthdayInput" placeholder="Birthday" required>     
+            <input type="text" id="BirthdayInput" placeholder="Birthday" required>
             <input type="text" id="ExperienceInput" placeholder="Experience" required>
             <input type="text" id="EmailInput" placeholder="Email" required>
             <input type="text" id="FreelanceInput" placeholder="Freelance: Available" required>
-            </div>
-
-            <div id="certificatesContainer">
-                <h4>Select specialization certificates  </h4> 
-                    <label>
-                    <input type="checkbox" id="webDesignerOption" onclick="selectOnlyOne(this)"> 
-                    Web Designer
-                </label><br>
-                
-                <label>
-                    <input type="checkbox" id="webDeveloperOption" onclick="selectOnlyOne(this)">
-                    Web Developer
-                </label><br>
-
-                <label>
-                    <input type="checkbox" id="frontndDeveloperOption" onclick="selectOnlyOne(this)">
-                    Front End Developer
-                </label><br>
-
-                <label>
-                    <input type="checkbox" id="appsDesignerOption" onclick="selectOnlyOne(this)">
-                    Apps Designer
-                </label><br>
-
-                <label>
-                    <input type="checkbox" id="appsDeveloperOption" onclick="selectOnlyOne(this)">
-                    Apps Developer
-                </label>
-            </div>
-
-
-                                        <!-- Profile Picture-->
-<div id="certificatesContainer">
-        
-    <!-- Left -->
-
-        <!-- Open Picture File -->
-        <h4 >Choose a profile picture</h4>
-        <div>
-            <input id="imgRadioInput" type="radio" name="pictureFileOpt" 
-                    checked>
-            <label id="imgLable">Open Picture File</label>
-             <input id="imgLable" type="file" />
         </div>
-        <!-- Type Picture URL -->
-         <div>
-            <input id="urlOptInput" type="radio" name="pictureFileOpt" >
-            <label id="imgLable"> Type Picture URL </label>
-            <input id="imgLable" type="text">
-         </div>
 
-</div>    
-           
-            <div id="certificatesContainer">
-                <h3>Choose API  </h3> 
-              <label>
-                <input type="checkbox" id="option1" onclick="selectOnlyOne(this)"> 
+        <div id="certificatesContainer">
+            <h4>Select specialization certificates </h4>
+            <label>
+                <input type="checkbox" id="webDesignerOption" onclick="selectOnlyOne(this)">
+                Web Designer
+            </label><br>
+
+            <label>
+                <input type="checkbox" id="webDeveloperOption" onclick="selectOnlyOne(this)">
+                Web Developer
+            </label><br>
+
+            <label>
+                <input type="checkbox" id="frontndDeveloperOption" onclick="selectOnlyOne(this)">
+                Front End Developer
+            </label><br>
+
+            <label>
+                <input type="checkbox" id="appsDesignerOption" onclick="selectOnlyOne(this)">
+                Apps Designer
+            </label><br>
+
+            <label>
+                <input type="checkbox" id="appsDeveloperOption" onclick="selectOnlyOne(this)">
+                Apps Developer
+            </label>
+        </div>
+
+
+        <!-- Profile Picture-->
+        <div id="profilePicture">
+            <!-- Left -->
+            <!-- Open Picture File -->
+            <h4>Choose a profile picture</h4>
+            <div>
+                <input id="imgRadioInput" type="radio" name="pictureFileOpt" checked>
+                <label id="imgLable">Open Picture File</label>
+                <input id="picOption" type="file" />
+            </div>
+            <!-- Type Picture URL -->
+            <div>
+                <input id="urlOptInput" type="radio" name="pictureFileOpt">
+                <label id="imgLable"> Type Picture URL </label>
+                <input id="urlPicture1" type="text">
+            </div>
+
+        </div>
+
+        <div id="anotherPic">
+
+            <h4>Choose another picture</h4>
+            <div>
+                <input id="imgRadioInput" type="radio" name="picFileOpt" checked>
+                <label id="imgLable">Open Picture File</label>
+                <input id="pictOption" type="file" />
+            </div>
+            Type Picture URL
+            <div>
+                <input id="urlOptInput" type="radio" name="picFileOpt">
+                <label id="imgLable"> Type Picture URL </label>
+                <input id="urlPicture2" type="text">
+            </div>
+
+        </div>
+
+
+        <div id="certificatesContainer">
+            <h3>Choose API </h3>
+            <label>
+                <input type="checkbox" id="option1" onclick="selectOnlyOne(this)">
                 weather
-              </label><br>
-              
-              <label>
+            </label><br>
+
+            <label>
                 <input type="checkbox" id="option2" onclick="selectOnlyOne(this)">
                 foreign currency
-              </label>
-            </div>
+            </label>
+        </div>
 
- <div id="certificatesContainer">
-    <!-- Qualification Start -->
-    <div class="container-fluid py-5" >
-        <div>
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                 <h1 class="position-absolute text-uppercase text-primary">
-                    Education & Expericence</h1>
-            </div>
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h3 class="mb-4">My Education</h3>
-                    <div class="border-left border-primary pt-2 pl-4 ml-2">
-                        <div class="position-relative mb-4">
-                            <i class="far fa-dot-circle text-primary position-absolute"
-                                style="top: 2px; left: -32px;"></i>
-                                <input id="myEducationText" type="text" 
-                                       placeholder="Tempor eos dolore amet tempor 
+        <div id="certificatesContainer">
+            <!-- Qualification Start -->
+            <div class="container-fluid py-5">
+                <div>
+                    <div class="position-relative d-flex align-items-center justify-content-center">
+                        <h1 class="position-absolute text-uppercase text-primary">
+                            Education & Expericence</h1>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <h3 class="mb-4">My Education</h3>
+                            <div class="border-left border-primary pt-2 pl-4 ml-2">
+                                <div class="position-relative mb-4">
+                                    <i class="far fa-dot-circle text-primary position-absolute"
+                                        style="top: 2px; left: -32px;"></i>
+                                    <input id="myEducationText" type="text" placeholder="Tempor eos dolore amet tempor 
                                                     dolor tempor. Dolore ea magna
                                                     sit amet dolor eirmod. Eos
                                                     ipsum est tempor dolor.
                                                     Clita lorem kasd sed ea lorem
                                                     diam ea lorem eirmod duo sit
                                                     ipsum stet lorem diam">
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <h3 class="mb-4">My Expericence</h3>
-                    <div class="border-left border-primary pt-2 pl-4 ml-2">
-                        <div class="position-relative mb-4">
-                            <i class="far fa-dot-circle text-primary position-absolute"
-                                style="top: 2px; left: -32px;"></i>
-                                <input id="myExpericenceText" type="text" 
-                                        placeholder="Tempor eos dolore amet tempor 
+                        <div class="col-lg-6">
+                            <h3 class="mb-4">My Expericence</h3>
+                            <div class="border-left border-primary pt-2 pl-4 ml-2">
+                                <div class="position-relative mb-4">
+                                    <i class="far fa-dot-circle text-primary position-absolute"
+                                        style="top: 2px; left: -32px;"></i>
+                                    <input id="myExpericenceText" type="text" placeholder="Tempor eos dolore amet tempor 
                                         dolor tempor. Dolore ea magna
                                         sit amet dolor eirmod. Eos
                                         ipsum est tempor dolor.
                                         Clita lorem kasd sed ea lorem
                                         diam ea lorem eirmod duo sit
                                         ipsum stet lorem diam">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- Qualification End -->
         </div>
-    </div>
-    <!-- Qualification End -->
- </div>
-            
-            <div id="certificatesContainer">
 
-            <h3>My Skills :       </h3> 
-            
+        <div id="certificatesContainer">
+
+            <h3>My Skills : </h3>
+
             <div class="row">
                 <div class="col-12">
-                    <label class="form-label select-label">HTML          </label>    
+                    <label class="form-label select-label">HTML </label>
                     <select id="htmlOpt" class="select form-control-lg">
                         <option value="1" disabled>Choose option</option>
                         <option value="85">85%</option>
@@ -316,7 +332,7 @@ button:hover {
                 </div>
             </div>
             <br>
-            
+
             <div class="row">
                 <div class="col-12">
                     <label class="form-label select-label">Wordpress</label>
@@ -327,173 +343,217 @@ button:hover {
                         <option value="100">100%</option>
                     </select>
                 </div>
-            </div> 
-                        
+            </div>
+
         </div>
 
-            <button  onclick="createFunc()">צור פורטפוליו</button>
+        <button onclick="createFunc()">צור פורטפוליו</button>
 
-        
+
     </div>
 
     <script>
 
+        function convertPic(num) {
+            switch (num) {
+                case 1:
+                    let picturerOpt = document.getElementsByName("pictureFileOpt");   //arr
+                    let currentPicture = null;
+                    let i = 0;
 
-function convertPic() {
+                    for (i = 0; i < picturerOpt.length; i++) {
+                        if (picturerOpt[i].checked) {
+                            currentPicture = picturerOpt[i].value;
+                            console.log(i)
+                            break;
+                        }
+                    }
 
-let picturerOpt = document.getElementsByName("pictureFileOpt");   //arr
-let currentPicture = null;
-let i = 0;
+                    if (i == 0) {
+                        console.log(i);
+                        const file = document.getElementById("picOption").files[0];
+                        console.log(file)
+                        if (!file) {
+                            console.log(file)
+                            return "../images/no.jpg"
+                        }
+                        else {
+                            console.log(file)
+                            return new Promise((resolve) => {
+                                const reader = new FileReader();
+                                reader.onloadend = function () {
+                                    const base64 = reader.result;
+                                    resolve(base64);
+                                }
+                                reader.readAsDataURL(file);
+                            })
+                        }
+                    }
 
-for (i = 0; i < picturerOpt.length; i++) {
-    if (picturerOpt[i].checked) {
-        currentPicture = picturerOpt[i].value;
-        console.log(i)
-        break;
-    }
-}
+                    if (i == 1) {
+                        console.log(1);
+                        const file = $("#urlPicture1").val();
+                        console.log(file)
+                        if (!file) {
+                            return "../images/no.jpg";
+                        }
+                        else {
+                            return file;
+                        }
+                    }
 
+                case 2:
+                    let pictOpt = document.getElementsByName("picFileOpt");   //arr
+                    let currPicture = null;
+                    let j = 0;
 
-if (i == 0) {
-    console.log(0);
-    const file = document.getElementById("profilePicture").files[0];
-    console.log(file)
-    if (!file) {
-        console.log(file)
-        return "../images/no.jpg"
-    }
-    else {
-        console.log(file)
-        return new Promise((resolve) => {
-            const reader = new FileReader();
-            reader.onloadend = function () {
-                const base64 = reader.result;
-                resolve(base64);
+                    for (j = 0; j < pictOpt.length; j++) {
+                        if (pictOpt[j].checked) {
+                            currPicture = pictOpt[j].value;
+
+                            break;
+                        }
+                    }
+
+                    if (j == 0) {
+                        const file = document.getElementById("pictOption").files[0];
+                        if (!file) {
+                            return "../images/no.jpg"
+                        }
+                        else {
+                            return new Promise((resolve) => {
+                                const reader = new FileReader();
+                                reader.onloadend = function () {
+                                    const base64 = reader.result;
+                                    resolve(base64);
+                                }
+                                reader.readAsDataURL(file);
+                            })
+                        }
+                    }
+                    if (j == 1) {
+                        console.log(1);
+                        const file = $("#urlPicture2").val();
+                        if (!file) {
+                            return "../images/no.jpg";
+                        }
+                        else {
+                            return file;
+                        }
+                    }
             }
-            reader.readAsDataURL(file);
-        })
-    }
-}
+        }
 
-if (i == 1) {
-    console.log(1);
-    const file = $("#urlPicture").val();
-    console.log(file)
-    if (!file) {
-        return "../images/no.jpg";
-    }
-    else {
-        return file;
-    }
-}
-}
 
 
         function selectOnlyOne(checkbox) {
             const checkboxes = document.querySelectorAll('input[type="checkbox"]');
             checkboxes.forEach((cb) => {
-                  //  if(cb){}
+                //  if(cb){}
                 //if (cb !== checkbox) cb.checked = false;
-             });
-         }
+            });
+        }
 
-async function  createFunc(){
+        async function createFunc() {
 
-let profilePicture = await convertPic();
-console.log(profilePicture)  
+            let profilePicture = await convertPic(1);
+            let anotherPicture = await convertPic(2);
+            console.log(profilePicture)
 
-// API בחירת 
+            // API בחירת 
 
-const apiW = document.getElementById('option1').checked;
-const apiFC = document.getElementById('option2').checked;
+            const apiW = document.getElementById('option1').checked;
+            const apiFC = document.getElementById('option2').checked;
 
-console.log(apiW)
-console.log(apiFC)
+            console.log(apiW)
+            console.log(apiFC)
 
-const htmlOptVal = document.getElementById('htmlOpt').value;
-const cssOptVal = document.getElementById('cssOpt').value;
-const phpOptVal = document.getElementById('phpOpt').value;
-const javascriptOptVal = document.getElementById('javascriptOpt').value;
-const angularJsOptVal = document.getElementById('angularJsOpt').value;
-const wordpressOptVal = document.getElementById('wordpressOpt').value;
+            const htmlOptVal = document.getElementById('htmlOpt').value;
+            const cssOptVal = document.getElementById('cssOpt').value;
+            const phpOptVal = document.getElementById('phpOpt').value;
+            const javascriptOptVal = document.getElementById('javascriptOpt').value;
+            const angularJsOptVal = document.getElementById('angularJsOpt').value;
+            const wordpressOptVal = document.getElementById('wordpressOpt').value;
 
-const webDesignerOpt = document.getElementById('webDesignerOption').checked;
-const webDeveloperOpt = document.getElementById('webDeveloperOption').checked;
-const frontndDeveloperOpt = document.getElementById('frontndDeveloperOption').checked;
-const appsDesignerOpt = document.getElementById('appsDesignerOption').checked;
-const appsDeveloperOpt = document.getElementById('appsDeveloperOption').checked;
-
-
-const myEducationText = document.getElementById('myEducationText').value;
-const myExpericenceText = document.getElementById('myExpericenceText').value;
+            const webDesignerOpt = document.getElementById('webDesignerOption').checked;
+            const webDeveloperOpt = document.getElementById('webDeveloperOption').checked;
+            const frontndDeveloperOpt = document.getElementById('frontndDeveloperOption').checked;
+            const appsDesignerOpt = document.getElementById('appsDesignerOption').checked;
+            const appsDeveloperOpt = document.getElementById('appsDeveloperOption').checked;
 
 
-class Person{
-constructor(personID,fullName, degree, phone,address ,
-               birthDay,experience ,email,freelance
-               ,apiWeather,apiFcurrency) {
-    this.personID=personID;
-    this.fullName = fullName;
-    this.degree = degree;
-    this.phone = phone;
-    this.address = address;
-    this.birthDay = birthDay;
-    this.experience = experience;
-    this.email = email;
-    this.freelance = freelance;
-    this.apiWeather = apiW;
-    this.apiFcurrency = apiFC;  }
-}
-
-const fullName = document.getElementById('fullName').value;
-//const bio = document.getElementById('bio').value;
-const degree = document.getElementById('DegreeInput').value;
-const phone = document.getElementById('PhoneInput').value;
-const address = document.getElementById('AddressInput').value;
-const birthDay = document.getElementById('BirthdayInput').value;
-const experience = document.getElementById('ExperienceInput').value;
-const email = document.getElementById('EmailInput').value;
-const freelance = document.getElementById('FreelanceInput').value;
+            const myEducationText = document.getElementById('myEducationText').value;
+            const myExpericenceText = document.getElementById('myExpericenceText').value;
 
 
-let personArr=[];
-let newPerson = new Person(1,fullName, degree,phone,address,
-                birthDay,experience,email,freelance,apiW,apiFC)
-    newPerson.personID = 1;
-    //newUser.profilePicture = profilePicture;
+            class Person {
+                constructor(personID, fullName, degree, phone, address,
+                    birthDay, experience, email, freelance
+                    , apiWeather, apiFcurrency) {
+                    this.personID = personID;
+                    this.fullName = fullName;
+                    this.degree = degree;
+                    this.phone = phone;
+                    this.address = address;
+                    this.birthDay = birthDay;
+                    this.experience = experience;
+                    this.email = email;
+                    this.freelance = freelance;
+                    this.apiWeather = apiW;
+                    this.apiFcurrency = apiFC;
+                }
+            }
 
-newPerson.htmlOptVal = htmlOptVal;
-newPerson.cssOptVal = cssOptVal;
-newPerson.phpOptVal = phpOptVal;
-newPerson.javascriptOptVal = javascriptOptVal;
-newPerson.angularJsOptVal = angularJsOptVal;
-newPerson.wordpressOptVal = wordpressOptVal;
-
-newPerson.webDesignerOpt = webDesignerOpt;
-newPerson.webDeveloperOpt = webDeveloperOpt;
-newPerson.frontndDeveloperOpt = frontndDeveloperOpt;
-newPerson.appsDesignerOpt = appsDesignerOpt;
-newPerson.appsDeveloperOpt = appsDeveloperOpt;
-
-newPerson.myEducationText=myEducationText;
-newPerson.myExpericenceText=myExpericenceText;
-
-newPerson.profilePicture=profilePicture;
-
-    personArr= [(newPerson)];
-    console.log(personArr);
-     
-    localStorage.setItem("currentPerson", JSON.stringify(personArr));
-    alert("You have successfully registered  ")
-
-window.location.href = 'index.html';
+            const fullName = document.getElementById('fullName').value;
+            //const bio = document.getElementById('bio').value;
+            const degree = document.getElementById('DegreeInput').value;
+            const phone = document.getElementById('PhoneInput').value;
+            const address = document.getElementById('AddressInput').value;
+            const birthDay = document.getElementById('BirthdayInput').value;
+            const experience = document.getElementById('ExperienceInput').value;
+            const email = document.getElementById('EmailInput').value;
+            const freelance = document.getElementById('FreelanceInput').value;
 
 
+            let personArr = [];
+            let newPerson = new Person(1, fullName, degree, phone, address,
+                birthDay, experience, email, freelance, apiW, apiFC)
+            newPerson.personID = 1;
+            //newUser.profilePicture = profilePicture;
 
-}
+            newPerson.htmlOptVal = htmlOptVal;
+            newPerson.cssOptVal = cssOptVal;
+            newPerson.phpOptVal = phpOptVal;
+            newPerson.javascriptOptVal = javascriptOptVal;
+            newPerson.angularJsOptVal = angularJsOptVal;
+            newPerson.wordpressOptVal = wordpressOptVal;
+
+            newPerson.webDesignerOpt = webDesignerOpt;
+            newPerson.webDeveloperOpt = webDeveloperOpt;
+            newPerson.frontndDeveloperOpt = frontndDeveloperOpt;
+            newPerson.appsDesignerOpt = appsDesignerOpt;
+            newPerson.appsDeveloperOpt = appsDeveloperOpt;
+
+            newPerson.myEducationText = myEducationText;
+            newPerson.myExpericenceText = myExpericenceText;
+
+            newPerson.profilePicture = profilePicture;
+            newPerson.anotherPicture = anotherPicture;
+
+            personArr = [(newPerson)];
+            console.log(personArr);
+
+            localStorage.setItem("currentPerson", JSON.stringify(personArr));
+            alert("You have successfully registered  ")
+
+            window.location.href = 'index.html';
+
+
+
+        }
 
     </script>
-      
+
 </body>
 
 </html>

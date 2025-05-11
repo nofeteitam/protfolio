@@ -1,7 +1,11 @@
-let newPerArr=JSON.parse(localStorage.getItem("currentPerson"));
+let newPerArr = JSON.parse(localStorage.getItem("currentPerson"));
 
 /*         ABOUT ME                   */
+document.getElementById('protName').textContent = newPerArr[0].fullName
 document.getElementById('fullName').textContent = newPerArr[0].fullName
+document.getElementById('profPic').src = newPerArr[0].profilePicture;
+document.getElementById('anotherPic').src = newPerArr[0].anotherPicture;
+document.getElementById('Name').textContent = newPerArr[0].fullName;
 document.getElementById('degreeInput').textContent = newPerArr[0].degree
 document.getElementById('PhoneInput').textContent = newPerArr[0].phone;
 document.getElementById('AddressInput').textContent = newPerArr[0].address;
@@ -11,15 +15,15 @@ document.getElementById('EmailInput').textContent = newPerArr[0].email;
 document.getElementById('FreelanceInput').textContent = newPerArr[0].freelance;
 
 /*         My SKILLS on BAR                  */
-document.getElementById('htmlDivProgressBar').textContent = newPerArr[0].htmlOptVal+"%";
-document.getElementById('cssDivProgressBar').textContent = newPerArr[0].cssOptVal+"%";
-document.getElementById('phpDivProgressBar').textContent = newPerArr[0].phpOptVal+"%";
-document.getElementById('javascriptDivProgressBar').textContent = newPerArr[0].javascriptOptVal+"%";
-document.getElementById('angularDivProgressBar').textContent = newPerArr[0].angularJsOptVal+"%";
-document.getElementById('wordpressDivProgressBar').textContent = newPerArr[0].wordpressOptVal+"%";
+document.getElementById('htmlDivProgressBar').textContent = newPerArr[0].htmlOptVal + "%";
+document.getElementById('cssDivProgressBar').textContent = newPerArr[0].cssOptVal + "%";
+document.getElementById('phpDivProgressBar').textContent = newPerArr[0].phpOptVal + "%";
+document.getElementById('javascriptDivProgressBar').textContent = newPerArr[0].javascriptOptVal + "%";
+document.getElementById('angularDivProgressBar').textContent = newPerArr[0].angularJsOptVal + "%";
+document.getElementById('wordpressDivProgressBar').textContent = newPerArr[0].wordpressOptVal + "%";
 
 /*         My SKILLs progrees Value                   */
-document.getElementById('htmlDivProgressBar').ariaValueNow =newPerArr[0].htmlOptVal;
+document.getElementById('htmlDivProgressBar').ariaValueNow = newPerArr[0].htmlOptVal;
 document.getElementById('cssDivProgressBar').ariaValueNow = newPerArr[0].cssOptVal;
 document.getElementById('phpDivProgressBar').ariaValueNow = newPerArr[0].phpOptVal;
 document.getElementById('javascriptDivProgressBar').ariaValueNow = newPerArr[0].javascriptOptVal;
@@ -27,39 +31,42 @@ document.getElementById('angularDivProgressBar').ariaValueNow = newPerArr[0].ang
 document.getElementById('wordpressDivProgressBar').ariaValueNow = newPerArr[0].wordpressOptVal;
 
 /*             My SKILLs BAR  Header  Value            */
-document.getElementById('htmlHeaderProgressBar').textContent =newPerArr[0].htmlOptVal+"%";
-document.getElementById('cssHeaderProgressBar').textContent = newPerArr[0].cssOptVal+"%";
-document.getElementById('phpHeaderProgressBar').textContent = newPerArr[0].phpOptVal+"%";
-document.getElementById('javascriptHeaderProgressBar').textContent = newPerArr[0].javascriptOptVal+"%";
-document.getElementById('angularJsHeaderProgressBar').textContent = newPerArr[0].angularJsOptVal+"%";
-document.getElementById('wordpressHeaderProgressBar').textContent = newPerArr[0].wordpressOptVal+"%";
+document.getElementById('htmlHeaderProgressBar').textContent = newPerArr[0].htmlOptVal + "%";
+document.getElementById('cssHeaderProgressBar').textContent = newPerArr[0].cssOptVal + "%";
+document.getElementById('phpHeaderProgressBar').textContent = newPerArr[0].phpOptVal + "%";
+document.getElementById('javascriptHeaderProgressBar').textContent = newPerArr[0].javascriptOptVal + "%";
+document.getElementById('angularJsHeaderProgressBar').textContent = newPerArr[0].angularJsOptVal + "%";
+document.getElementById('wordpressHeaderProgressBar').textContent = newPerArr[0].wordpressOptVal + "%";
 
 
-document.getElementById('myEducationP').textContent =newPerArr[0].myEducationText;
+document.getElementById('myEducationP').textContent = newPerArr[0].myEducationText;
 document.getElementById('myExpericenceP').textContent = newPerArr[0].myExpericenceText;
+
+document.getElementById('maiLink').textContent = newPerArr[0].email;
+document.getElementById('teLink').textContent = newPerArr[0].phone;
 
 certificateDivFunc();
 
-function certificateDivFunc(){
+function certificateDivFunc() {
 
-    let certificatesArr=[];
-    let myStr=""
-    if (newPerArr[0].appsDesignerOpt){
-        myStr+="Apps Designer"+`, `;
+    let certificatesArr = [];
+    let myStr = ""
+    if (newPerArr[0].appsDesignerOpt) {
+        myStr += "Apps Designer" + `, `;
     }
-    if (newPerArr[0].appsDeveloperOpt){
-        myStr+="Apps Developer"+`, `;
+    if (newPerArr[0].appsDeveloperOpt) {
+        myStr += "Apps Developer" + `, `;
     }
-    if (newPerArr[0].frontndDeveloperOpt){
-        myStr+="Front End Developer"+`, `;
+    if (newPerArr[0].frontndDeveloperOpt) {
+        myStr += "Front End Developer" + `, `;
     }
-    if (newPerArr[0].webDesignerOpt){
-        myStr+="Web Designer"+`, `;
+    if (newPerArr[0].webDesignerOpt) {
+        myStr += "Web Designer" + `, `;
     }
-    if (newPerArr[0].webDeveloperOpt){
-        myStr+="Web Developer"+`, `;
+    if (newPerArr[0].webDeveloperOpt) {
+        myStr += "Web Developer" + `, `;
     }
-    document.getElementById('certificateDiv').textContent =myStr;
+    document.getElementById('certificateDiv').textContent = myStr;
 }
 
 
@@ -85,49 +92,49 @@ const lon = 34.7818;
 
 const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,wind_speed_10m`;
 
-if (newPerArr[0].apiWeather==1){
-fetch(weatherUrl)
-    .then(res => res.json())
-    .then(data => {
-        const temp = data.current.temperature_2m;
-        const wind = data.current.wind_speed_10m;
-        document.getElementById('weather').innerHTML = `
+if (newPerArr[0].apiWeather == 1) {
+    fetch(weatherUrl)
+        .then(res => res.json())
+        .then(data => {
+            const temp = data.current.temperature_2m;
+            const wind = data.current.wind_speed_10m;
+            document.getElementById('weather').innerHTML = `
   <h3>מזג האוויר בתל אביב</h3>
   <p>🌡️ טמפרטורה: ${temp}°C</p>
   <p>💨 רוח: ${wind} קמ"ש</p>
 `;
-    })
-    .catch(err => console.error('שגיאה במזג האוויר:', err));
+        })
+        .catch(err => console.error('שגיאה במזג האוויר:', err));
 
 }
 
-else{
-    console.log( document.getElementById(`weatherAPIDiv`));
-    document.getElementById(`weatherAPIDiv`).innerText="";
-    document.getElementById(`weatherAPIHeader`).innerText="";
- }
+else {
+    console.log(document.getElementById(`weatherAPIDiv`));
+    document.getElementById(`weatherAPIDiv`).innerText = "";
+    document.getElementById(`weatherAPIHeader`).innerText = "";
+}
 
 // --- שער חליפין USD ל-ILS ---
 const apiKey = 'fca_live_HPkMf2Y6dre2RSsryEk8B6mYShc5OQpybaABj6sn'; // שימי כאן את מפתח ה-API שלך
 const currencyUrl = `https://api.freecurrencyapi.com/v1/latest?apikey=${apiKey}&base_currency=USD&currencies=ILS`;
 
-if (newPerArr[0].apiFcurrency==1){
-fetch(currencyUrl)
-    .then(res => res.json())
-    .then(data => {
-        const rate = data.data.ILS;
-        document.getElementById('exchange').innerHTML = `
+if (newPerArr[0].apiFcurrency == 1) {
+    fetch(currencyUrl)
+        .then(res => res.json())
+        .then(data => {
+            const rate = data.data.ILS;
+            document.getElementById('exchange').innerHTML = `
                     <h3>💱 שער דולר לשקל</h3>
                     <p>1 USD = ${rate.toFixed(2)} ILS</p> `;
-    }).catch(err => console.error('שגיאה בשערי המטבע:', err));
+        }).catch(err => console.error('שגיאה בשערי המטבע:', err));
 
-} 
+}
 
-else{
-    console.log( document.getElementById(`weatherAPIDiv`));
-    document.getElementById(`exchangeAPIDiv`).innerText="";
-    document.getElementById(`exchangeAPIHeader`).innerText="";
- }
+else {
+    console.log(document.getElementById(`weatherAPIDiv`));
+    document.getElementById(`exchangeAPIDiv`).innerText = "";
+    document.getElementById(`exchangeAPIHeader`).innerText = "";
+}
 
 
 
@@ -145,18 +152,18 @@ else{
         }
     });
 
-//  =============================
+    //  =============================
 
 
     // Smooth scrolling on the navbar links
     $(".navbar-nav a").on('click', function (event) {
         if (this.hash !== "") {
             event.preventDefault();
-            
+
             $('html, body').animate({
                 scrollTop: $(this.hash).offset().top - 45
             }, 1500, 'easeInOutExpo');
-            
+
             if ($(this).parents('.navbar-nav').length) {
                 $('.navbar-nav .active').removeClass('active');
                 $(this).closest('a').addClass('active');
@@ -164,7 +171,7 @@ else{
         }
     });
 
-    
+
 
 
     // Typed Initiate
@@ -213,7 +220,7 @@ else{
         $('.progress .progress-bar').each(function () {
             $(this).css("width", $(this).attr("aria-valuenow") + '%');
         });
-    }, {offset: '80%'});
+    }, { offset: '80%' });
 
 
     // Portfolio isotope and filter
@@ -225,10 +232,10 @@ else{
         $("#portfolio-flters li").removeClass('active');
         $(this).addClass('active');
 
-        portfolioIsotope.isotope({filter: $(this).data('filter')});
+        portfolioIsotope.isotope({ filter: $(this).data('filter') });
     });
-    
-    
+
+
     // Back to top button
     $(window).scroll(function () {
         if ($(this).scrollTop() > 200) {
@@ -238,7 +245,7 @@ else{
         }
     });
     $('.back-to-top').click(function () {
-        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+        $('html, body').animate({ scrollTop: 0 }, 1500, 'easeInOutExpo');
         return false;
     });
 
@@ -251,6 +258,6 @@ else{
         loop: true,
         items: 1
     });
-    
+
 })(jQuery);
 

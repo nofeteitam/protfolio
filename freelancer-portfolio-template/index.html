@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,10 +30,9 @@
     <!-- Navbar Start -->
     <nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
         <a href="index.html" class="navbar-brand ml-lg-3">
-            <h1 class="m-0 display-5"><span class="text-primary">my</span>protfolio</h1>
+            <h1 class="m-0 display-10"><span id="protName" class="text-primary">my</span></h1>
         </a>
-        <button type="button" class="navbar-toggler" data-toggle="collapse" 
-                data-target="#navbarCollapse">
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse px-lg-3" id="navbarCollapse">
@@ -47,7 +45,7 @@
                 <!--<a href="#portfolio" class="nav-item nav-link">Portfolio</a>-->
                 <a href="#contact" class="nav-item nav-link">Contact</a>
             </div>
-            <a href="" class="btn btn-outline-primary d-none d-lg-block">LogOut</a>
+            <a href="./Register.html" class="btn btn-outline-primary d-none d-lg-block">LogOut</a>
         </div>
     </nav>
     <!-- Navbar End -->
@@ -56,16 +54,17 @@
     <div class="container-fluid bg-primary d-flex align-items-center mb-5 py-5" id="home" style="min-height: 100vh;">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-5 px-5 pl-lg-0 pb-5 pb-lg-0">
-                    <img class="img-fluid w-100 rounded-circle shadow-sm" src="img/profile.jpg" alt="">
+                <div class="profile-pic-wrapper">
+                    <img id="profPic" class="profile-pic" src="img/profile.jpg" alt="">
                 </div>
                 <div class="col-lg-7 text-center text-lg-left">
                     <h3 class="text-white font-weight-normal mb-3">I'm</h3>
-                    <h1 id="fullName" class="display-3 text-uppercase text-primary mb-2" style="-webkit-text-stroke: 2px #ffffff;">
-                        abcdefg</h1>
+                    <h1 id="fullName" class="display-3 text-uppercase text-primary mb-2"
+                        style="-webkit-text-stroke: 2px #ffffff;">
+                        guast</h1>
                     <h1 class="typed-text-output d-inline font-weight-lighter text-white"></h1>
                     <div id="certificateDiv" class="typed-text d-none">a, b, c, d, e
-                        </div>
+                    </div>
                     <div class="d-flex align-items-center justify-content-center justify-content-lg-start pt-5">
                         <a href="" class="btn btn-outline-light mr-5">Download CV</a>
 
@@ -85,8 +84,9 @@
                 <h1 class="position-absolute text-uppercase text-primary">About Me</h1>
             </div>
             <div class="row align-items-center">
+
                 <div class="col-lg-5 pb-4 pb-lg-0">
-                    <img class="img-fluid rounded w-100" src="img/about.jpg" alt="">
+                    <img id="anotherPic" class="img-fluid rounded w-100" src="img/about.jpg" alt="">
                 </div>
                 <div class="col-lg-7">
                     <h3 class="mb-4">UI/UX Designer & Web Developer</h3>
@@ -95,7 +95,7 @@
                         lorem diam dolor justo et dolor dolor dolor</p>
                     <div class="row mb-3">
                         <div class="col-sm-6 py-2">
-                            <h6>Name: <span id="fullName" class="text-secondary">Kate Winslet</span></h6>
+                            <h6>Name: <span id="Name" class="text-secondary">Kate Winslet</span></h6>
                         </div>
                         <div class="col-sm-6 py-2">
                             <h6>Birthday: <span id="birthdayInput" class="text-secondary">1 April 1990</span></h6>
@@ -104,7 +104,7 @@
                             <h6>Degree: <span id="degreeInput" class="text-secondary">Master</span></h6>
                         </div>
                         <div class="col-sm-6 py-2">
-                            <h6>Experience: <span id="ExperienceInput"class="text-secondary">10 Years</span></h6>
+                            <h6>Experience: <span id="ExperienceInput" class="text-secondary">10 Years</span></h6>
                         </div>
                         <div class="col-sm-6 py-2">
                             <h6>Phone: <span id="PhoneInput" class="text-secondary">+012 345 6789</span></h6>
@@ -113,61 +113,64 @@
                             <h6>Email: <span id="EmailInput" class="text-secondary">info@example.com</span></h6>
                         </div>
                         <div class="col-sm-6 py-2">
-                            <h6>Address: <span id="AddressInput" class="text-secondary">123 Street, New York, USA</span></h6>
+                            <h6>Address: <span id="AddressInput" class="text-secondary">123 Street, New York, USA</span>
+                            </h6>
                         </div>
                         <div class="col-sm-6 py-2">
                             <h6>Freelance: <span id="FreelanceInput" class="text-secondary">Available</span></h6>
                         </div>
                     </div>
-                    <a href="" class="btn btn-outline-primary mr-4">Hire Me</a>
-                    <a href="" class="btn btn-outline-primary">Learn More</a>
+                    <a href="#contact" class="btn btn-outline-primary mr-4">Hire Me</a>
+                    <!--   <a href="" class="btn btn-outline-primary">Learn More</a>-->
                 </div>
             </div>
         </div>
     </div>
     <!-- About End -->
 
-   
+
     <div class="container-fluid py-5" id="api">
         <div class="container">
             <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;"> A  P   I</h1>
-                <h1  class="position-absolute text-uppercase text-primary">My API'S</h1>
+                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;"> A P I</h1>
+                <h1 class="position-absolute text-uppercase text-primary">API'S</h1>
             </div>
 
             <div class="row align-items-center">
-                <div  class="col-lg-6">
+                <div class="col-lg-6">
                     <h3 id="weatherAPIHeader" class="mb-4">Weather API</h3>
                     <div class="border-left border-primary pt-2 pl-4 ml-2">
                         <div id="weatherAPIDiv" class="position-relative mb-4">
-                            <i  class="far fa-dot-circle text-primary position-absolute"
+                            <i class="far fa-dot-circle text-primary position-absolute"
                                 style="top: 2px; left: -32px;"></i>
-                                <div class="position-relative d-flex align-items-center justify-content-center" id="qualification">
-                                    <section id="extra-info">
-                                      <div class="info-box" id="weather"></div>
-                                    </section>
-                                </div>
+                            <div class="position-relative d-flex align-items-center justify-content-center"
+                                id="qualification">
+                                <section id="extra-info">
+                                    <div class="info-box" id="weather"></div>
+                                </section>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <h3 id="exchangeAPIHeader"  class="mb-4">Exchange API</h3>
+                    <h3 id="exchangeAPIHeader" class="mb-4">Exchange API</h3>
                     <div class="border-left border-primary pt-2 pl-4 ml-2">
                         <div id="exchangeAPIDiv" class="position-relative mb-4">
                             <i class="far fa-dot-circle text-primary position-absolute"
                                 style="top: 2px; left: -32px;"></i>
-                                <div class="position-relative d-flex align-items-center justify-content-center" id="qualification">
-                                    <section id="extra-info">
-                                       <div class="info-box" id="exchange"></div>
-                                    </section>
-                                 </div>
+                            <div class="position-relative d-flex align-items-center justify-content-center"
+                                id="qualification">
+                                <section id="extra-info">
+                                    <div class="info-box" id="exchange"></div>
+                                </section>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
- 
+
     <!-- Qualification Start -->
     <div class="container-fluid py-5" id="qualification">
         <div class="container">
@@ -182,10 +185,11 @@
                         <div class="position-relative mb-4">
                             <i class="far fa-dot-circle text-primary position-absolute"
                                 style="top: 2px; left: -32px;"></i>
-                                <p id="myEducationP" >Tempor eos dolore amet tempor dolor tempor. Dolore ea magna sit amet dolor eirmod. Eos
-                                    ipsum est tempor dolor. Clita lorem kasd sed ea lorem diam ea lorem eirmod duo sit ipsum
-                                    stet lorem diam</p>
-                            </div>
+                            <p id="myEducationP">Tempor eos dolore amet tempor dolor tempor. Dolore ea magna sit amet
+                                dolor eirmod. Eos
+                                ipsum est tempor dolor. Clita lorem kasd sed ea lorem diam ea lorem eirmod duo sit ipsum
+                                stet lorem diam</p>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -195,7 +199,8 @@
                             <i class="far fa-dot-circle text-primary position-absolute"
                                 style="top: 2px; left: -32px;"></i>
 
-                                <p id="myExpericenceP">Tempor eos dolore amet tempor dolor tempor. Dolore ea magna sit amet dolor eirmod. Eos
+                            <p id="myExpericenceP">Tempor eos dolore amet tempor dolor tempor. Dolore ea magna sit amet
+                                dolor eirmod. Eos
                                 ipsum est tempor dolor. Clita lorem kasd sed ea lorem diam ea lorem eirmod duo sit ipsum
                                 stet lorem diam</p>
                         </div>
@@ -223,10 +228,8 @@
                             <h6 id="htmlHeaderProgressBar" class="font-weight-bold">95%</h6>
                         </div>
                         <div class="progress">
-                            <div id="htmlDivProgressBar" class="progress-bar bg-primary" 
-                                 role="progressbar" aria-valuenow="95" 
-                                 aria-valuemin="0"
-                                 aria-valuemax="100"></div>
+                            <div id="htmlDivProgressBar" class="progress-bar bg-primary" role="progressbar"
+                                aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
 
@@ -236,10 +239,8 @@
                             <h6 id="cssHeaderProgressBar" class="font-weight-bold">85%</h6>
                         </div>
                         <div class="progress">
-                            <div id="cssDivProgressBar" class="progress-bar bg-warning"
-                                 role="progressbar" aria-valuenow="85" 
-                                 aria-valuemin="0"
-                                 aria-valuemax="100"></div>
+                            <div id="cssDivProgressBar" class="progress-bar bg-warning" role="progressbar"
+                                aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
 
@@ -249,10 +250,8 @@
                             <h6 id="phpHeaderProgressBar" class="font-weight-bold">90%</h6>
                         </div>
                         <div class="progress">
-                            <div id="phpDivProgressBar" class="progress-bar bg-danger" 
-                                 role="progressbar" aria-valuenow="90" 
-                                 aria-valuemin="0"
-                                 aria-valuemax="100"></div>
+                            <div id="phpDivProgressBar" class="progress-bar bg-danger" role="progressbar"
+                                aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
                 </div>
@@ -265,10 +264,8 @@
                             <h6 id="javascriptHeaderProgressBar" class="font-weight-bold">90%</h6>
                         </div>
                         <div class="progress">
-                            <div id="javascriptDivProgressBar" class="progress-bar bg-danger" 
-                                 role="progressbar" aria-valuenow="90" 
-                                 aria-valuemin="0"
-                                 aria-valuemax="100"></div>
+                            <div id="javascriptDivProgressBar" class="progress-bar bg-danger" role="progressbar"
+                                aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
 
@@ -278,10 +275,8 @@
                             <h6 id="angularJsHeaderProgressBar" class="font-weight-bold">95%</h6>
                         </div>
                         <div class="progress">
-                            <div id="angularDivProgressBar" class="progress-bar bg-dark" 
-                                 role="progressbar" aria-valuenow="95" 
-                                 aria-valuemin="0"
-                                 aria-valuemax="100"></div>
+                            <div id="angularDivProgressBar" class="progress-bar bg-dark" role="progressbar"
+                                aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
 
@@ -291,10 +286,8 @@
                             <h6 id="wordpressHeaderProgressBar" class="font-weight-bold">85%</h6>
                         </div>
                         <div class="progress">
-                            <div id="wordpressDivProgressBar" class="progress-bar bg-info" 
-                                 role="progressbar" aria-valuenow="85" 
-                                 aria-valuemin="0"
-                                 aria-valuemax="100">
+                            <div id="wordpressDivProgressBar" class="progress-bar bg-info" role="progressbar"
+                                aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
                             </div>
                         </div>
                     </div>
@@ -306,10 +299,6 @@
     </div>
     <!-- Skill End -->
 
-
-
-
-
     <!-- Contact Start -->
     <div class="container-fluid py-5" id="contact">
         <div class="container">
@@ -317,57 +306,23 @@
                 <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Contact</h1>
                 <h1 class="position-absolute text-uppercase text-primary">Contact Me</h1>
             </div>
-            <div style="padding-left: 15px;">
+            <div class="text-center">
                 <p>
-                    <a href="E.commers@gmail.com" style="color: #007bff; text-decoration: none;">E.commers@gmail.com</a>
+                    <a id="maiLink" href="mailto:E.commers@gmail.com" class="text-primary text-decoration-none">
+                        E.commers@gmail.com
+                    </a>
                 </p>
                 <p>
-                    <a href="tel:0543334355" style="color: #007bff; text-decoration: none;">0543334355</a>
+                    <a id="teLink" href="tel:0543334355" class="text-primary text-decoration-none">
+                        0543334355
+                    </a>
                 </p>
             </div>
-            <!-- Contact End 
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="contact-form text-center">
-                        <div id="success"></div>
-                        <form name="sentMessage" id="contactForm" novalidate="novalidate">
-                            <div class="form-row">
-                                <div class="control-group col-sm-6">
-                                    <input type="text" class="form-control p-4" id="name" placeholder="Your Name"
-                                        required="required" data-validation-required-message="Please enter your name" />
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="control-group col-sm-6">
-                                    <input type="email" class="form-control p-4" id="email" placeholder="Your Email"
-                                        required="required"
-                                        data-validation-required-message="Please enter your email" />
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <input type="text" class="form-control p-4" id="subject" placeholder="Subject"
-                                    required="required" data-validation-required-message="Please enter a subject" />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="control-group">
-                                <textarea class="form-control py-3 px-4" rows="5" id="message" placeholder="Message"
-                                    required="required"
-                                    data-validation-required-message="Please enter your message"></textarea>
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div>
-                                <button class="btn btn-outline-primary" type="submit" id="sendMessageButton">Send
-                                    Message</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            Contact End -->
+
+
         </div>
     </div>
     <!-- Contact End -->
-
 
     <!-- Footer Start -->
     <div class="container-fluid bg-primary text-white mt-5 py-5 px-sm-3 px-md-5">
@@ -413,6 +368,46 @@
 
 </html>
 
+
+
+<!-- Contact End 
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-form text-center">
+                        <div id="success"></div>
+                        <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                            <div class="form-row">
+                                <div class="control-group col-sm-6">
+                                    <input type="text" class="form-control p-4" id="name" placeholder="Your Name"
+                                        required="required" data-validation-required-message="Please enter your name" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="control-group col-sm-6">
+                                    <input type="email" class="form-control p-4" id="email" placeholder="Your Email"
+                                        required="required"
+                                        data-validation-required-message="Please enter your email" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <input type="text" class="form-control p-4" id="subject" placeholder="Subject"
+                                    required="required" data-validation-required-message="Please enter a subject" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <textarea class="form-control py-3 px-4" rows="5" id="message" placeholder="Message"
+                                    required="required"
+                                    data-validation-required-message="Please enter your message"></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div>
+                                <button class="btn btn-outline-primary" type="submit" id="sendMessageButton">Send
+                                    Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div> -->
 
 
 <!-- Services Start
