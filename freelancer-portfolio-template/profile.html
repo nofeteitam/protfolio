@@ -103,7 +103,6 @@
             font-size: 14px;
             margin-right: 1%;
 
-
         }
 
         button {
@@ -444,8 +443,6 @@
             }
         }
 
-
-
         function selectOnlyOne(checkbox) {
             const checkboxes = document.querySelectorAll('input[type="checkbox"]');
             checkboxes.forEach((cb) => {
@@ -455,6 +452,8 @@
         }
 
         async function createFunc() {
+
+            let currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
             let profilePicture = await convertPic(1);
             let anotherPicture = await convertPic(2);
@@ -518,7 +517,7 @@
             let personArr = [];
             let newPerson = new Person(1, fullName, degree, phone, address,
                 birthDay, experience, email, freelance, apiW, apiFC)
-            newPerson.personID = 1;
+            newPerson.personID = currentUser.userId;
             //newUser.profilePicture = profilePicture;
 
             newPerson.htmlOptVal = htmlOptVal;
@@ -540,14 +539,31 @@
             newPerson.profilePicture = profilePicture;
             newPerson.anotherPicture = anotherPicture;
 
-            personArr = [(newPerson)];
+            
             console.log(personArr);
 
-            localStorage.setItem("currentPerson", JSON.stringify(personArr));
-            alert("You have successfully registered  ")
+            if(!JSON.parse(localStorage.getItem("currentPerson")))
+              {
+                personArr = [(newPerson)];
+                localStorage.setItem("currentPerson", JSON.stringify(personArr));
+                alert("You have successfully registered  ")
 
-            window.location.href = 'index.html';
+                window.location.href = 'index.html';
 
+              }
+            else{
+                personArr = (newPerson);
+
+                let allPersons=JSON.parse(localStorage.getItem("currentPerson"))
+                allPersons.push(personArr);
+
+                localStorage.setItem("currentPerson", JSON.stringify(allPersons));
+                alert("You have successfully registered  ")
+                window.location.href = 'index.html';
+
+   
+
+            }  
 
 
         }

@@ -93,9 +93,10 @@ $("#submitRegBtn").click(async (event) => {
                 localStorage.setItem("users", JSON.stringify([newUser]));
             }
             alert("You have successfully registered");
+            localStorage.setItem("currentUser", JSON.stringify(newUser));
             deleteFields()
             window.location.href = "profile.html";
-            return;
+           //return;
         }
 
         /*
