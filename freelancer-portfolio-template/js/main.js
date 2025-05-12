@@ -2,11 +2,9 @@
 let currentUser = JSON.parse(localStorage.getItem("currentUser"));
 let AllPerArr = JSON.parse(localStorage.getItem("currentPerson"));
 
-for(let i in AllPerArr)
-{
-    if (AllPerArr[i].personID==currentUser.userId )
-    {
-        newPerArr=AllPerArr[i];
+for (let i in AllPerArr) {
+    if (AllPerArr[i].personID == currentUser.userId) {
+        newPerArr = AllPerArr[i];
         break;
 
     }
@@ -16,6 +14,8 @@ for(let i in AllPerArr)
 document.getElementById('protName').textContent = newPerArr.fullName
 document.getElementById('fullName').textContent = newPerArr.fullName
 document.getElementById('profPic').src = newPerArr.profilePicture;
+//document.getElementById('CV').href = newPerArr.CV;
+
 document.getElementById('anotherPic').src = newPerArr.anotherPicture;
 document.getElementById('Name').textContent = newPerArr.fullName;
 document.getElementById('degreeInput').textContent = newPerArr.degree
@@ -82,7 +82,29 @@ function certificateDivFunc() {
 }
 
 
+document.addEventListener("DOMContentLoaded", function () {
+    const person = newPerArr;
+    const openCvBtn = document.getElementById("openCvBtn");
+    const cvIframe = document.getElementById("cvIframe");
 
+    if (person && person.CV) {
+        console.log(newPerArr);
+        console.log(person);
+        openCvBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            if (person.CV.startsWith("http") || person.CV.startsWith("data:application/pdf")) {
+                cvIframe.src = person.CV;
+                const myModal = new bootstrap.Modal(document.getElementById('cvModal'));
+                myModal.show();
+            } else {
+                alert("CV is not in a supported format.");
+            }
+        });
+    } else {
+        openCvBtn.style.display = "none";
+    }
+});
 
 /*
 
@@ -199,7 +221,7 @@ else {
     }
 
 
-    // Modal Video
+    /* Modal Video
     $(document).ready(function () {
         var $videoSrc;
         $('.btn-play').click(function () {
@@ -214,7 +236,7 @@ else {
         $('#videoModal').on('hide.bs.modal', function (e) {
             $("#video").attr('src', $videoSrc);
         })
-    });
+    }); */
 
 
     // Scroll to Bottom

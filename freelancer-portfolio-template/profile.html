@@ -73,11 +73,22 @@
         }
 
         #imgRadioInput,
-        #urlOptInput {
+        #urlOptInput,
+        #cvLable,
+        #CVLable,
+        #cvRadioInput,
+        #urlOptInput,
+        #CVurlOptInput {
             width: 50px;
         }
 
-        #imgLable {
+        #imgLable,
+        #pictOption,
+        #picOption,
+        #urlPicture1,
+        #urlPicture2,
+        #urlCV,
+        #cvOption {
             margin-bottom: 20px;
             width: 200px;
         }
@@ -171,7 +182,7 @@
 
 
         <!-- Profile Picture-->
-        <div id="profilePicture">
+        <div id="certificatesContainer">
             <!-- Left -->
             <!-- Open Picture File -->
             <h4>Choose a profile picture</h4>
@@ -180,6 +191,7 @@
                 <label id="imgLable">Open Picture File</label>
                 <input id="picOption" type="file" />
             </div>
+            OR
             <!-- Type Picture URL -->
             <div>
                 <input id="urlOptInput" type="radio" name="pictureFileOpt">
@@ -189,7 +201,7 @@
 
         </div>
 
-        <div id="anotherPic">
+        <div id="certificatesContainer">
 
             <h4>Choose another picture</h4>
             <div>
@@ -197,11 +209,28 @@
                 <label id="imgLable">Open Picture File</label>
                 <input id="pictOption" type="file" />
             </div>
-            Type Picture URL
+            OR
             <div>
                 <input id="urlOptInput" type="radio" name="picFileOpt">
                 <label id="imgLable"> Type Picture URL </label>
                 <input id="urlPicture2" type="text">
+            </div>
+
+        </div>
+
+        <div id="certificatesContainer">
+
+            <h4>Upload your CV</h4>
+            <div>
+                <input id="cvRadioInput" type="radio" name="cvFileOpt" value="file" checked>
+                <label id="cvLable">Open CV File</label>
+                <input id="cvOption" type="file" accept=".pdf" />
+            </div>
+            OR
+            <div>
+                <input id="CVurlOptInput" type="radio" name="cvFileOpt" value="url">
+                <label id="CVLable"> Type CV URL </label>
+                <input id="urlCV" type="text">
             </div>
 
         </div>
@@ -443,6 +472,40 @@
             }
         }
 
+        async function convertCV() {
+            let cvType = document.querySelector('input[name="cvFileOpt"]:checked').value;
+
+            if (cvType === "file") {
+                let fileInput = document.getElementById("cvOption");
+                let file = fileInput.files[0];
+
+                if (file) {
+                    return new Promise((resolve, reject) => {
+                        const reader = new FileReader();
+                        reader.onload = function (e) {
+                            resolve(e.target.result); // מחזיר data:application/pdf;base64,...
+                        };
+                        reader.onerror = function () {
+                            reject("Failed to read file");
+                        };
+                        reader.readAsDataURL(file);
+                    });
+                } else {
+                    alert("Please choose a CV file.");
+                    return null;
+                }
+            } else {
+                let urlInput = document.getElementById("urlCV").value.trim();
+                if (urlInput) {
+                    return urlInput;
+                } else {
+                    alert("Please enter a CV URL.");
+                    return null;
+                }
+            }
+        }
+
+
         function selectOnlyOne(checkbox) {
             const checkboxes = document.querySelectorAll('input[type="checkbox"]');
             checkboxes.forEach((cb) => {
@@ -457,15 +520,17 @@
 
             let profilePicture = await convertPic(1);
             let anotherPicture = await convertPic(2);
-            console.log(profilePicture)
+            //  console.log(profilePicture)
+
+            let CV = await convertCV();
 
             // API בחירת 
 
             const apiW = document.getElementById('option1').checked;
             const apiFC = document.getElementById('option2').checked;
 
-            console.log(apiW)
-            console.log(apiFC)
+            // console.log(apiW)
+            //console.log(apiFC)
 
             const htmlOptVal = document.getElementById('htmlOpt').value;
             const cssOptVal = document.getElementById('cssOpt').value;
@@ -480,10 +545,8 @@
             const appsDesignerOpt = document.getElementById('appsDesignerOption').checked;
             const appsDeveloperOpt = document.getElementById('appsDeveloperOption').checked;
 
-
             const myEducationText = document.getElementById('myEducationText').value;
             const myExpericenceText = document.getElementById('myExpericenceText').value;
-
 
             class Person {
                 constructor(personID, fullName, degree, phone, address,
@@ -513,8 +576,7 @@
             const email = document.getElementById('EmailInput').value;
             const freelance = document.getElementById('FreelanceInput').value;
 
-
-            let personArr = [];
+            // let personArr = [];
 
             let newPerson = new Person(1, fullName, degree, phone, address,
                 birthDay, experience, email, freelance, apiW, apiFC)
@@ -540,6 +602,8 @@
             newPerson.profilePicture = profilePicture;
             newPerson.anotherPicture = anotherPicture;
 
+            newPerson.CV = CV;
+
 
             //  console.log(personArr);
 
@@ -550,8 +614,8 @@
 
                 window.location.href = 'index.html';
 
-              }
-            else{
+            }
+            else {
                 personArr = (newPerson);
 
                 let allPersons = JSON.parse(localStorage.getItem("currentPerson"))
@@ -561,11 +625,10 @@
                 alert("You have successfully registered  ")
                 window.location.href = 'index.html';
 
-
-            }  
-
+            }
 
         }
+
 
 
     </script>
