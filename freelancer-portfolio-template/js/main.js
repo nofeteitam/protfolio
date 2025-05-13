@@ -57,7 +57,34 @@ document.getElementById('myExpericenceP').textContent = newPerArr.myExpericenceT
 document.getElementById('maiLink').textContent = newPerArr.email;
 document.getElementById('teLink').textContent = newPerArr.phone;
 
+document.addEventListener("DOMContentLoaded", function () {
+    const container = document.getElementById("projectsContainer");
+
+    if (newPerArr.projects && Array.isArray(newPerArr.projects)) {
+        newPerArr.projects.forEach(project => {
+            const card = document.createElement("div");
+            card.className = "col-lg-4 col-md-6 text-center mb-5";
+            card.innerHTML = `
+                <div class="d-flex align-items-center justify-content-center mb-4">
+                    <i class="fa fa-2x fa-laptop service-icon bg-primary text-white mr-3"></i>
+                    <h4 class="font-weight-bold m-0">${project.name}</h4>
+                </div>
+                <p>${project.description}</p>
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                    ${project.languages.map(lang => `
+                        <span class="badge rounded-pill bg-primary text-white px-3 py-2 mx-1 my-1">${lang}</span>
+                    `).join("")}
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    }
+});
+
 certificateDivFunc();
+
+
+
 
 function certificateDivFunc() {
 
